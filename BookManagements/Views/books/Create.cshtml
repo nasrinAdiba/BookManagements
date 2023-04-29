@@ -1,0 +1,65 @@
+﻿@model BookManagements.Models.book
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Book Management</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BookName" class="control-label"></label>
+                <input asp-for="BookName" class="form-control" />
+                <span asp-validation-for="BookName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PublisherName" class="control-label"></label>
+                <input asp-for="PublisherName" class="form-control" />
+                <span asp-validation-for="PublisherName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PublisherAge" class="control-label"></label>
+                <input asp-for="PublisherAge" class="form-control" />
+                <span asp-validation-for="PublisherAge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PageNumber" class="control-label"></label>
+                <input asp-for="PageNumber" class="form-control" />
+                <span asp-validation-for="PageNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PublishDate" class="control-label"></label>
+                <input asp-for="PublishDate" class="form-control" />
+                <span asp-validation-for="PublishDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="Type" class="control-label">Story</label>
+                <input asp-for="Type" type="checkbox" class="form-control" value="Story" /><br>*@
+                <label asp-for="Type" class="control-label"> Please Check The Box!</label><br>
+                <input asp-for="Type"  type="checkbox" value="Story">
+                <label asp-for="Type" class="control-label"> Story</label><br>
+                <input asp-for="Type" type="checkbox" value="Novel">
+                <label asp-for="Type" class="control-label"> Novel</label><br>
+                <input asp-for="Type" type="checkbox" value="Scifi">
+                <label asp-for="Type" class="control-label"> Science Fiction</label><br>
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
